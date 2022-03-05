@@ -1,7 +1,8 @@
 import os
 import time
 import json
-from tkinter import W
+import websockets
+import asyncio
 import requests
 
 from sensor import *
@@ -9,7 +10,7 @@ from typing import Union, List, Optional
 
 class Client:
     # set default query interval as 1 second
-    def __init__(self, host_file: str, sensors: List[Sensor], query_interval: Optional[int] = 1,
+    def __init__(self, host_file: str, sensors: List[Sensor], query_interval: Optional[int] = 10,
                  api_url: str = "/data"):
         assert os.path.isfile(host_file), ValueError("Host File must exist to post sensor data")
         with open(host_file, 'r') as f:
@@ -19,7 +20,7 @@ class Client:
         self.query_interval = query_interval
         self.sensors = sensors
     
-    def transmit(self):
+    async def transmit(self):
         while True:
             # aggregate all sensor measurements into a single dictionary
             transmit_data = {}
@@ -28,7 +29,9 @@ class Client:
                 transmit_data[name] = data
             
             for host in self.hosts:
-                url = f"http://{host['host']}:{host['port']}/{self.api_url}"
-                r = requests.post(url, data=transmit_data)
+                url = f"ws://{host['host']}:{host['port']}/{self.api_url}"
+                async with websockets.connect(url) as websocket:
+                    await websocket.send(json.dumps(transmit_data))
+                    r = await websocket.recv()
 
             time.sleep(self.query_interval)
