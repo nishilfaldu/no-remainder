@@ -5,9 +5,15 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 function WeatherCard() {
   return (
     <div className="WeatherCard">
-      <h1>Card Title</h1>
-      <h2 className = "temp">52</h2>
-      <WbSunnyIcon></WbSunnyIcon>
+      <h1>Weather</h1>
+      <div className="temp">
+        <h2>52°</h2>
+      </div>
+      <div className="ico">
+        <WbSunnyIcon sx={{fontSize:40}}></WbSunnyIcon>
+      </div>
+
+      <h5>Cincinnati, Ohio</h5>
     </div>
   )
 }
