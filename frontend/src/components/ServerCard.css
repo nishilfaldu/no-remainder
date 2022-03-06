@@ -1,0 +1,23 @@
+.ServerCard {
+    border-radius: 10px;
+    box-shadow: 0px 0px 90px rgb(63, 63, 63) ;
+    padding:10px;
+    color:white;
+    background:rgb(65, 80, 113);
+}
+
+.store {
+    display: inline;
+}
+
+h1 {
+    font-size: 15px;
+    text-align: center;
+    margin:0px;
+}
+
+h5 {
+    font-weight: 100;
+    margin:5px;
+    font-size:40px;
+}
