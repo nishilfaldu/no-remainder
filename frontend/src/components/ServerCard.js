@@ -8,6 +8,13 @@ function ServerCard() {
   // if (server_temp > 50) {
   //   setMessage("The server is running well")
   // }
+
+  useEffect(() => {
+    fetch('http://localhost:8000/data')
+      .then(response => response.json())
+      .then(data => console.log(data.status))
+  })
+
   return (
     <div className="ServerCard">
       <h1>Server Temperatures</h1>
