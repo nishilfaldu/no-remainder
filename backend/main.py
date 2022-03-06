@@ -1,5 +1,6 @@
 from fastapi import FastAPI, WebSocket
 from fastapi.responses import HTMLResponse
+from fastapi import Request
 
 app = FastAPI()
 
@@ -42,6 +43,13 @@ html = """
 async def get():
     return HTMLResponse(html)
 
+@app.post('/data')
+async def post(info : Request):
+    req_info = await info.json()
+    return {
+        "status" : "SUCCESS",
+        "data" : req_info
+    }
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
