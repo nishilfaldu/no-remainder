@@ -54,7 +54,8 @@ html = """
 
 @app.get("/data")
 async def get():
-    return HTMLResponse(html)
+    # return HTMLResponse(html)
+    return {"message": "Hello World"}
 
 @app.post('/data')
 async def post(info : Request):

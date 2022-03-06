@@ -12,7 +12,7 @@ function ServerCard() {
   useEffect(() => {
     fetch('http://localhost:8000/data')
       .then(response => response.json())
-      .then(data => console.log(data.status))
+      .then(data => console.log(data.message))
   })
 
   return (
