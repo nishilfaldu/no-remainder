@@ -19,13 +19,13 @@ function WeatherCard() {
     <div className="WeatherCard">
       <h1>Weather</h1>
       <div className="temp">
-        <h2>{weather}°</h2>
+        <h2 className = 'out_temp'>{weather}°</h2>
       </div>
       <div className="ico">
         <WbSunnyIcon sx={{fontSize:40}}></WbSunnyIcon>
       </div>
 
-      <h5>Cincinnati, Ohio</h5>
+      <h5 className='location'>Cincinnati, Ohio</h5>
     </div>
   )
 }

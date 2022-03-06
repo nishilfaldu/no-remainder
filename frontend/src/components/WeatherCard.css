@@ -12,7 +12,7 @@ h1 {
     margin:0px;
 }
 
-h2 {
+.out_temp {
     font-weight: 100;
     font-size:50px;
     margin:0px;
@@ -23,7 +23,7 @@ h2 {
     vertical-align: middle;
 }
 
-h5 {
+.location {
     font-size:10px;
     margin:0px;
     margin-bottom:10px;

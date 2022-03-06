@@ -1,15 +1,18 @@
 import React from 'react'
 import './ServerCard.css'
-import StorageIcon from '@mui/icons-material/Storage';
+import { useState, useEffect } from 'react'
 
 function ServerCard() {
+  const [server_temp, setTemp] = useState(20)
+
+  // if (server_temp > 50) {
+  //   setMessage("The server is running well")
+  // }
   return (
     <div className="ServerCard">
       <h1>Server Temperatures</h1>
-      <div className = "store">
-        <StorageIcon></StorageIcon>
-      </div>
-        <h5>76°</h5>
+      <h2 className='server-temp'>{server_temp}°</h2>
+      <h5 className='caption'>{server_temp < 59? "Server temperature too low" : server_temp > 89? "Server temperature too high": "Server temperatures look good"}</h5>
     </div>
   )
 }

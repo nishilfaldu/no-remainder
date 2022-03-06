@@ -6,7 +6,7 @@ import WeatherCard from './components/WeatherCard';
 function App() {
   return (
     <div className="App">
-      <WeatherCard></WeatherCard>
+      {/* <WeatherCard></WeatherCard> */}
       <ServerCard></ServerCard>
     </div>
   );
